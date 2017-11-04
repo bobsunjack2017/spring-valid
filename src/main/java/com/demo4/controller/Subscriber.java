@@ -22,7 +22,7 @@ public class Subscriber  implements Serializable {
     @Size(min=10)
     private String phone;
 
-    @NotNull
+    @NotNull(message = "{NotNull.Subscriber.gender}")
     private String gender;
 
     @DateTimeFormat(pattern="MM/dd/yyyy")

@@ -9,8 +9,10 @@
  http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
     <!-- 扫描所有的controller -->
     <context:component-scan base-package="com.demo4.controller" />
+    <!-- 指定自己定义的validator -->
+    <mvc:annotation-driven validator="validator"/>
 
-    <mvc:annotation-driven />
+    <mvc:annotation-driven  />
 
     <mvc:interceptors>
         <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" />
@@ -40,7 +42,7 @@
     </bean>
     <bean id="jsonView" class="com.demo4.aop.RenderJsonView"></bean>
 
-    <bean id="bindingResultAop" class="com.demo4.aop.BindingResultAop"/>
+    <bean id="bindingResultAop" class="com.demo4.aop.BindingResultAop" />
     <aop:config>
         <aop:pointcut id="bindingResultAopPC" expression="execution(* com.demo4.controller.*.*(..) )"/>
         <aop:aspect id="controllerAspect" ref="bindingResultAop">
@@ -48,8 +50,6 @@
         </aop:aspect>
     </aop:config>
 
-    <!-- 指定自己定义的validator -->
-    <mvc:annotation-driven validator="validator"/>
 
     <!-- 以下 validator  ConversionService 在使用 mvc:annotation-driven 会 自动注册-->
     <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
@@ -63,11 +63,11 @@
         <property name="basenames">
             <list>
                 <!-- 在web环境中一定要定位到classpath 否则默认到当前web应用下找  -->
-                <value>classpath:message-1--</value>
+                <value>classpath:messages</value>
                 <value>classpath:org/hibernate/validator/ValidationMessages</value>
             </list>
         </property>
-        <property name="useCodeAsDefaultMessage" value="false"/>
+        <property name="useCodeAsDefaultMessage" value="true"/>
         <property name="defaultEncoding" value="UTF-8"/>
         <property name="cacheSeconds" value="60"/>
     </bean>
