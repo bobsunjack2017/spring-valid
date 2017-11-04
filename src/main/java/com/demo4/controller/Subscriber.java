@@ -5,13 +5,14 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.*;
+import java.io.Serializable;
 import java.util.Date;
 
-public class Subscriber {
+public class Subscriber  implements Serializable {
     @Size(min=2, max=30)
     private String name;
 
-    @NotEmpty
+    @NotEmpty(groups = {SubscriberGroup.Add.class})
     @Email
     private String email;
 
