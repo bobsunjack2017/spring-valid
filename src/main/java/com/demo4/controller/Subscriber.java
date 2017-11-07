@@ -9,10 +9,10 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Subscriber  implements Serializable {
-    @Size(min=2, max=30)
+    @Size(min=2, max=30,message = "{user.name.length.illegal}")
     private String name;
 
-    @NotEmpty(groups = {SubscriberGroup.Add.class})
+    @NotEmpty(groups = {SubscriberGroup.Add.class,SubscriberGroup.Del.class})
     @Email
     private String email;
 
