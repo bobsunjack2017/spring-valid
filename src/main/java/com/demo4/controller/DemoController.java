@@ -23,7 +23,7 @@ public class DemoController {
     @ResponseBody
     public Object view(@Validated(SubscriberGroup.Add.class) Subscriber sub, BindingResult result){
         if(result.hasErrors()) {
-           return result.getAllErrors();
+            return result.getAllErrors();
         }
         return "demo";
     }

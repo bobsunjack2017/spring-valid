@@ -6,7 +6,7 @@
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
     <properties>
-        <spring.version>3.1.1.RELEASE</spring.version>
+        <spring.version>4.2.5.RELEASE</spring.version>
     </properties>
     <name>demo4 Maven Webapp</name>
     <url>http://maven.apache.org</url>
@@ -30,7 +30,7 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
-            <version>4.1.0.Final</version>
+            <version>5.2.4.Final</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/aspectj/aspectjrt -->
         <dependency>
@@ -103,6 +103,12 @@
             <artifactId>javax.el-api</artifactId>
             <version>2.2.4</version>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.6.5</version>
         </dependency>
 
     </dependencies>

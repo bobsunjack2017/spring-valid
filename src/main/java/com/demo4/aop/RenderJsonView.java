@@ -5,7 +5,8 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import net.sf.json.JsonConfig;
 import net.sf.json.util.PropertyFilter;
-import org.springframework.web.servlet.view.json.MappingJacksonJsonView;
+import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
+
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class RenderJsonView extends MappingJacksonJsonView {
+public class RenderJsonView extends MappingJackson2JsonView {
 
     protected void renderMergedOutputModel(Map<String, Object> model,
                                            HttpServletRequest request, HttpServletResponse response)
